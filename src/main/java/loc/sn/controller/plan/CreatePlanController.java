@@ -9,14 +9,17 @@ import loc.sn.service.admin.Discipline.DisciplineService;
 import loc.sn.service.admin.Group.GroupTblService;
 import loc.sn.service.admin.Kafedra.KafedraService;
 import loc.sn.service.admin.LearningYear.LearningYearService;
+import loc.sn.service.plan.PlanHistory.PlanHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -42,6 +45,10 @@ public class CreatePlanController {
     @Autowired
     private DisciplineService disciplineService;
 
+    @Qualifier("planHistoryService")
+    @Autowired
+    private PlanHistoryService planHistoryService;
+
 
     @RequestMapping(value = {"/select"}, method = RequestMethod.GET)
     public String showFilter(ModelMap modelMap) {
@@ -65,8 +72,21 @@ public class CreatePlanController {
         return "/plan/createplan/select";
     }
 
+    @RequestMapping(value = "/loadDiscipline", method = RequestMethod.GET)
+    public @ResponseBody
+    List<Discipline> selectAjaxDiscipline(@RequestParam(value = "kafedraId") String id) {
+        if (Integer.parseInt(id) == -1) {
+            return null;
+        }
+        List<Discipline> disciplines = disciplineService.findAllDisciplineByKafedraId(Integer.parseInt(id));
+        return disciplines;
+    }
+
     @RequestMapping(value = {"/new/{learningYear}/{groupTbl}"}, method = RequestMethod.GET)
-    public String addNewPlanValue(@PathVariable("learningYear") String learningYear, @PathVariable("groupTbl") String groupTbl, ModelMap modelMap) {
+    public String addNewPlanValue(@PathVariable("learningYear") String learningYear, @PathVariable("groupTbl") String groupTbl, ModelMap modelMap, HttpServletRequest request) {
+        if ((request.getSession().getAttribute("learningYear") == null) || (request.getSession().getAttribute("groupTbl") == null)) {
+            return "redirect:/createPlan/select";
+        }
         List<Kafedra> kafedras = kafedraService.findAllKafedras();
         PlanHistory planHistory = new PlanHistory();
         modelMap.addAttribute("planHistory", planHistory);
@@ -77,15 +97,19 @@ public class CreatePlanController {
         return "/plan/createplan/add";
     }
 
-    @RequestMapping(value = "/loadDiscipline", method = RequestMethod.GET)
-    public @ResponseBody
-    List<Discipline> selectAjaxDiscipline(@RequestParam(value = "kafedraId") String id, HttpServletRequest request) {
-        if (Integer.parseInt(id) == -1) {
-            return null;
+    @RequestMapping(value = {"/new/{learningYear}/{groupTbl}"}, method = RequestMethod.POST)
+    public String saveNewPlanValue(@Valid PlanHistory planHistory, BindingResult result, ModelMap modelMap) {
+        if (result.hasErrors()) {
+            modelMap.addAttribute("title", "Помилка | План");
+            return "/plan/createplan/add";
         }
-//        request.getSession().setAttribute("f_kafedra", id);
-        List<Discipline> disciplines = disciplineService.findAllDisciplineByKafedraId(Integer.parseInt(id));
-        return disciplines;
+        planHistoryService.savePlanHistory(planHistory);
+        modelMap.addAttribute("title", "План доданий успішно | План");
+        modelMap.addAttribute("title", "Додати новий план | План");
+        return "/plan/createplan/success";
     }
+
+
+
 
 }

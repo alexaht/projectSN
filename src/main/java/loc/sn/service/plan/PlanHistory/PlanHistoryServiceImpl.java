@@ -26,4 +26,16 @@ public class PlanHistoryServiceImpl implements PlanHistoryService {
         return planHistoryDao.findById(id);
     }
 
+    public void savePlanHistory(PlanHistory planHistory) {
+        planHistoryDao.savePlanHistory(planHistory);
+    }
+
+    public void updatePlanHistory(PlanHistory planHistory) {
+        planHistoryDao.updatePlanHistory(planHistory);
+    }
+
+    public void deletePlanHistory(String id) {
+        planHistoryDao.deletePlanHistory(id);
+    }
+
 }

@@ -12,4 +12,12 @@ public interface PlanHistoryDao {
     List<PlanHistory> findAllPlanHistorys();
 
     PlanHistory findById(int id);
+
+    void savePlanHistory(PlanHistory planHistory);
+
+    void updatePlanHistory(PlanHistory planHistory);
+
+    void deletePlanHistory(String id);
+
+
 }
