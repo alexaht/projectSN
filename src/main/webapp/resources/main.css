@@ -1,0 +1,86 @@
+
+.bodyBlock {
+    width: 99%;
+    margin: auto;
+    font-family: Arial;
+    margin-top: 10px;
+}
+
+.textAC {
+    text-align: center;
+}
+
+.formSize {
+    width: 60%;
+}
+
+.validError {
+    color: red;
+}
+
+.filterM {
+    display: block;
+    float: left;
+    margin: 5px;
+    width: 70%;
+}
+
+.fancyTable {
+    /*    table-layout: fixed;*/
+    width: auto;
+}
+.fancyTable thead td {
+    width: 80px;
+}
+
+.fancyTable td, th {
+    width:80px;
+}
+
+.fancyTable td {
+    cursor: pointer;
+}
+
+.fancyTable thead {
+    position:absolute;
+    *position: relative; /*ie7*/
+    left:0;
+}
+.fancyTable tbody {
+    display: block;
+    margin-top: 255px;
+}
+
+.fancyTable tr {
+    height: 40px;
+}
+
+.outer {
+    display: block;
+    float: left;
+    width: 100%;
+}
+.inner {
+    overflow-x:visible;
+    overflow-y:scroll;
+    width:100%;
+    height: 600px;
+
+}
+
+.my_tr_back{
+    background-color: #d9edf7;
+}
+.my_tr_back tr {
+    padding: 1px;
+    margin: 1px;
+}
+.my_tr_back tr td {
+    padding: 1px;
+    margin: 1px;
+}
+.table_text {
+    text-align: center;
+    font-size: 10px;
+}
+
