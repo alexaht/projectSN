@@ -189,8 +189,8 @@
                 <tr id="AddTableRow">
                     <td align="left"  colspan="35">
                         <c:choose>
-                            <c:when test="${(!empty sessionScope.learningYear) && (!empty sessionScope.groupTbl)}">
-                                <a class="btn btn-primary" href="/createPlan/new/${sessionScope.learningYear}/${sessionScope.groupTbl}">
+                            <c:when test="${(!empty sessionScope.s_ly) && (!empty sessionScope.s_gr)}">
+                                <a class="btn btn-primary" href="/createPlan/new/${sessionScope.s_ly}/${sessionScope.s_gr}">
                                     <span class="glyphicon glyphicon-plus"></span>Додати план
                                 </a>
                             </c:when>
@@ -198,7 +198,6 @@
                     </td>
                 </tr>
                 </thead>
-
                 <tbody>
 
                 </tbody>

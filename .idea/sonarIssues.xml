@@ -498,6 +498,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/loc/sn/dao/admin/Discipline/DisciplineDaoImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/loc/sn/dao/plan/PlanHistory/PlanHistoryDao.java">
           <value>
             <set />
@@ -509,6 +514,26 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/loc/sn/model/Employee.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/loc/sn/model/admin/Discipline.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/loc/sn/model/admin/GroupTbl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/loc/sn/model/admin/Kafedra.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/loc/sn/model/admin/LearningYear.java">
           <value>
             <set />
           </value>

@@ -1,9 +1,11 @@
 package loc.sn.model.admin;
 
+import loc.sn.model.plan.PlanHistory;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by oleksiy on 23.08.16.
@@ -23,6 +25,10 @@ public class Discipline {
     @ManyToOne
     @JoinColumn(name = "id_kaf")
     private Kafedra kafedra;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "discipline")
+    private Set<PlanHistory> planHistories;
 
     public int getId() {
         return id;
@@ -46,6 +52,14 @@ public class Discipline {
 
     public void setKafedra(Kafedra kafedra) {
         this.kafedra = kafedra;
+    }
+
+    public Set<PlanHistory> getPlanHistories() {
+        return planHistories;
+    }
+
+    public void setPlanHistories(Set<PlanHistory> planHistories) {
+        this.planHistories = planHistories;
     }
 
     @Override

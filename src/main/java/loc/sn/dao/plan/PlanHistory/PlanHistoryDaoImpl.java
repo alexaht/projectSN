@@ -9,9 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Created by oleksiy on 23.08.16.
- */
+
 @Repository("playHistoryDao")
 public class PlanHistoryDaoImpl extends AbstractDao<Integer, PlanHistory> implements PlanHistoryDao {
 
@@ -38,4 +36,10 @@ public class PlanHistoryDaoImpl extends AbstractDao<Integer, PlanHistory> implem
         query.executeUpdate();
     }
 
+    public List<PlanHistory> findAllByYearAndGroup(int learningYear, int groupTbl) {
+        Criteria criteria = createEntityCriteria();
+        criteria.add(Restrictions.eq("learningYear.id", learningYear));
+        criteria.add(Restrictions.eq("groupTbl.id", groupTbl));
+        return (List<PlanHistory>) criteria.list();
+    }
 }

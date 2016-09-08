@@ -9,7 +9,7 @@
             <form:select name="learningYear" path="" id="learningYear" cssStyle="width:250px; border-radius: 4px; padding: 4px; background: white">
                 <c:forEach items="${learningYear}" var="learningYear">
                     <c:choose>
-                        <c:when test="${learningYear.id == sessionScope.learningYear}">
+                        <c:when test="${learningYear.id == sessionScope.s_ly}">
                             <form:option selected="selected" value="${learningYear.id}">${learningYear.name}</form:option>
                         </c:when>
                         <c:otherwise>
@@ -24,7 +24,7 @@
             <form:select name="groupTbl" path="" id="groupTbl" cssStyle="width: 250px">
                 <c:forEach items="${groupTbl}" var="groupTbl">
                     <c:choose>
-                        <c:when test="${groupTbl.id == sessionScope.groupTbl}">
+                        <c:when test="${groupTbl.id == sessionScope.s_gr}">
                             <form:option selected="selected" value="${groupTbl.id}">${groupTbl.name}</form:option>
                         </c:when>
                         <c:otherwise>

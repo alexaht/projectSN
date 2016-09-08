@@ -1,7 +1,12 @@
 package loc.sn.model.plan;
 
+import loc.sn.model.admin.Discipline;
+import loc.sn.model.admin.GroupTbl;
+import loc.sn.model.admin.Kafedra;
+import loc.sn.model.admin.LearningYear;
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 /**
  * Created by oleksiy on 23.08.16.
@@ -14,21 +19,47 @@ public class PlanHistory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotNull
+   /* @NotNull
     @Column(name = "id_year")
-    private int idYear;
+    private int idYear;*/
 
-    @NotNull
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "id_year")
+    private LearningYear learningYear;
+
+
+  /*  @NotNull
     @Column(name = "id_gruppa")
     private int idGruppa;
+*/
 
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "id_gruppa")
+    private GroupTbl groupTbl;
+
+/*
     @NotNull
     @Column(name = "id_kafedra")
     private int idKafedra;
+*/
 
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "id_kafedra")
+    private Kafedra kafedra;
+
+/*
     @NotNull
     @Column(name = "id_discipline")
     private int idDiscipline;
+*/
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "id_discipline")
+    private Discipline discipline;
 
     @Column(name = "n_plan")
     private int nPlan;
@@ -104,38 +135,6 @@ public class PlanHistory {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getIdYear() {
-        return idYear;
-    }
-
-    public void setIdYear(int idYear) {
-        this.idYear = idYear;
-    }
-
-    public int getIdGruppa() {
-        return idGruppa;
-    }
-
-    public void setIdGruppa(int idGruppa) {
-        this.idGruppa = idGruppa;
-    }
-
-    public int getIdKafedra() {
-        return idKafedra;
-    }
-
-    public void setIdKafedra(int idKafedra) {
-        this.idKafedra = idKafedra;
-    }
-
-    public int getIdDiscipline() {
-        return idDiscipline;
-    }
-
-    public void setIdDiscipline(int idDiscipline) {
-        this.idDiscipline = idDiscipline;
     }
 
     public int getnPlan() {
@@ -392,5 +391,80 @@ public class PlanHistory {
 
     public void setsPzdp(int sPzdp) {
         this.sPzdp = sPzdp;
+    }
+
+    public Kafedra getKafedra() {
+        return kafedra;
+    }
+
+    public void setKafedra(Kafedra kafedra) {
+        this.kafedra = kafedra;
+    }
+
+    public Discipline getDiscipline() {
+        return discipline;
+    }
+
+    public void setDiscipline(Discipline discipline) {
+        this.discipline = discipline;
+    }
+
+    public LearningYear getLearningYear() {
+        return learningYear;
+    }
+
+    public void setLearningYear(LearningYear learningYear) {
+        this.learningYear = learningYear;
+    }
+
+    public GroupTbl getGroupTbl() {
+        return groupTbl;
+    }
+
+    public void setGroupTbl(GroupTbl groupTbl) {
+        this.groupTbl = groupTbl;
+    }
+
+    @Override
+    public String toString() {
+        return "PlanHistory{" +
+                "id=" + id +
+                ", learningYear=" + learningYear +
+                ", groupTbl=" + groupTbl +
+                ", kafedra=" + kafedra +
+                ", discipline=" + discipline +
+                ", nPlan=" + nPlan +
+                ", nConsult=" + nConsult +
+                ", zLesson=" + zLesson +
+                ", zLab=" + zLab +
+                ", zPractice=" + zPractice +
+                ", zConsult=" + zConsult +
+                ", zKursWork=" + zKursWork +
+                ", zKursWorkIngFah=" + zKursWorkIngFah +
+                ", zKursWorkFah=" + zKursWorkFah +
+                ", zControlWork=" + zControlWork +
+                ", zCce=" + zCce +
+                ", zExam=" + zExam +
+                ", zZalik=" + zZalik +
+                ", zCpa=" + zCpa +
+                ", zAtest=" + zAtest +
+                ", zCcrDp=" + zCcrDp +
+                ", zPzdp=" + zPzdp +
+                ", sLesson=" + sLesson +
+                ", sLab=" + sLab +
+                ", sPractice=" + sPractice +
+                ", sConsult=" + sConsult +
+                ", sKursWork=" + sKursWork +
+                ", sKursWorkIngFah=" + sKursWorkIngFah +
+                ", sKursWorkFah=" + sKursWorkFah +
+                ", sControlWork=" + sControlWork +
+                ", sCce=" + sCce +
+                ", sExam=" + sExam +
+                ", sZalik=" + sZalik +
+                ", sCpa=" + sCpa +
+                ", sAtest=" + sAtest +
+                ", sCcrDp=" + sCcrDp +
+                ", sPzdp=" + sPzdp +
+                '}';
     }
 }

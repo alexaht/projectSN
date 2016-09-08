@@ -41,4 +41,6 @@ public class DisciplineDaoImpl extends AbstractDao<Integer, Discipline> implemen
         criteria.add(Restrictions.eq("kafedra.id", id));
         return (List<Discipline>) criteria.list();
     }
+
+
 }

@@ -51,7 +51,7 @@ public class CreatePlanController {
 
 
     @RequestMapping(value = {"/select"}, method = RequestMethod.GET)
-    public String showFilter(ModelMap modelMap) {
+    public String showFilter(ModelMap modelMap, HttpServletRequest request) {
         List<LearningYear> learningYears = learningYearService.findAllLearningYears();
         List<GroupTbl> groupTbls = groupTblService.findAllGroupTbl();
         modelMap.addAttribute("learningYear", learningYears);
@@ -62,10 +62,23 @@ public class CreatePlanController {
 
     @RequestMapping(value = {"/select"}, method = RequestMethod.POST)
     public String showFilteredResult(ModelMap modelMap, HttpServletRequest request, @RequestParam(value = "learningYear") String learningYear, @RequestParam(value = "groupTbl") String groupTbl) {
-        request.getSession().setAttribute("learningYear", learningYear);
-        request.getSession().setAttribute("groupTbl", groupTbl);
+        request.getSession().setAttribute("s_ly", learningYear);
+        request.getSession().setAttribute("s_gr", groupTbl);
         List<LearningYear> learningYears = learningYearService.findAllLearningYears();
         List<GroupTbl> groupTbls = groupTblService.findAllGroupTbl();
+
+        List<PlanHistory> planHistories = null;
+        System.out.println("-----------------------------ly------------");
+        System.out.println(request.getSession().getAttribute("s_ly"));
+        if (null != request.getSession().getAttribute("s_ly")) {
+            System.out.println("-----------_IN IF---------------------");
+            planHistories = planHistoryService.findAllByYearAndGroup(Integer.parseInt((String)request.getSession().getAttribute("s_ly")), Integer.parseInt((String)request.getSession().getAttribute("s_gr")));
+            System.out.println("-------------------------------------------------------------------");
+            System.out.println(planHistories);
+            System.out.println("--------------------------------------------------------------------");
+        }
+        modelMap.addAttribute("planHistory", planHistories);
+
         modelMap.addAttribute("learningYear", learningYears);
         modelMap.addAttribute("groupTbl", groupTbls);
         modelMap.addAttribute("title", "Ввести дані плану | План");

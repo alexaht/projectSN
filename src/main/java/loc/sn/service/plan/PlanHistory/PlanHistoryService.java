@@ -18,4 +18,7 @@ public interface PlanHistoryService {
     void updatePlanHistory(PlanHistory planHistory);
 
     void deletePlanHistory(String id);
+
+    List<PlanHistory> findAllByYearAndGroup(int learningYear, int groupTbl);
+
 }

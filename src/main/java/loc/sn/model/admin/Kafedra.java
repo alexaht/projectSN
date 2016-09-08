@@ -1,5 +1,6 @@
 package loc.sn.model.admin;
 
+import loc.sn.model.plan.PlanHistory;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
@@ -40,8 +41,12 @@ public class Kafedra {
     @OneToMany(mappedBy = "kafedra")
     private Set<Discipline> disciplines;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "kafedra")
+    private Set<PlanHistory> planHistories;
 
     public int getId() {
+
         return id;
     }
 
@@ -95,6 +100,14 @@ public class Kafedra {
 
     public void setDisciplines(Set<Discipline> disciplines) {
         this.disciplines = disciplines;
+    }
+
+    public Set<PlanHistory> getPlanHistories() {
+        return planHistories;
+    }
+
+    public void setPlanHistories(Set<PlanHistory> planHistories) {
+        this.planHistories = planHistories;
     }
 
     @Override

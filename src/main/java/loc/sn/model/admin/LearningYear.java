@@ -1,11 +1,14 @@
 package loc.sn.model.admin;
 
+import loc.sn.model.plan.PlanHistory;
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 /**
  * Created by oleksiy on 23.08.16.
@@ -37,6 +40,10 @@ public class LearningYear {
     @NotNull
     @Column(name = "current")
     private int current;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "learningYear")
+    private Set<PlanHistory> planHistories;
 
     public int getId() {
         return id;
@@ -76,6 +83,14 @@ public class LearningYear {
 
     public void setCurrent(int current) {
         this.current = current;
+    }
+
+    public Set<PlanHistory> getPlanHistories() {
+        return planHistories;
+    }
+
+    public void setPlanHistories(Set<PlanHistory> planHistories) {
+        this.planHistories = planHistories;
     }
 
     @Override

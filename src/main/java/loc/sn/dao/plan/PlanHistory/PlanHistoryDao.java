@@ -19,5 +19,6 @@ public interface PlanHistoryDao {
 
     void deletePlanHistory(String id);
 
+    List<PlanHistory> findAllByYearAndGroup(int learningYear, int groupTbl);
 
 }

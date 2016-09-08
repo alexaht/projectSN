@@ -1,11 +1,14 @@
 package loc.sn.model.admin;
 
+import loc.sn.model.plan.PlanHistory;
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 /**
  * Created by oleksiy on 23.08.16.
@@ -35,6 +38,10 @@ public class GroupTbl {
     @Max(value = 6, message = "Максимальне значення поля 6")
     @Column(name = "kurs")
     private int kurs;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "groupTbl")
+    private Set<PlanHistory> planHistories;
 
     public int getId() {
         return id;
@@ -74,5 +81,13 @@ public class GroupTbl {
 
     public void setFacultet(Facultet facultet) {
         this.facultet = facultet;
+    }
+
+    public Set<PlanHistory> getPlanHistories() {
+        return planHistories;
+    }
+
+    public void setPlanHistories(Set<PlanHistory> planHistories) {
+        this.planHistories = planHistories;
     }
 }

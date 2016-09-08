@@ -38,4 +38,8 @@ public class PlanHistoryServiceImpl implements PlanHistoryService {
         planHistoryDao.deletePlanHistory(id);
     }
 
+    public List<PlanHistory> findAllByYearAndGroup(int learningYear, int groupTbl) {
+        return planHistoryDao.findAllByYearAndGroup(learningYear, groupTbl);
+    }
+
 }
