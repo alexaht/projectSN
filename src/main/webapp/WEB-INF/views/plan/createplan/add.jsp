@@ -27,12 +27,13 @@
         });
     }
 </script>
+${sessionScope}
 <div class="bodyBlock" style="margin: 5px; padding: 5px;">
     <form:form modelAttribute="planHistory" method="post">
         <div class="fl_left">
             <div class="form-group">
                 <label for="kafedra">Кафедра:</label>
-                <form:select path="idKafedra" name="kafedra" id="kafedra" cssClass="form-control" onchange="doAjax()">
+                <form:select path="Kafedra.id" name="kafedra" id="kafedra" cssClass="form-control" onchange="doAjax()">
                     <form:option value="-1">Виберіть кафедру</form:option>
                     <c:forEach items="${kafedra}" var="kafedra">
                         <form:option value="${kafedra.id}">${kafedra.name}</form:option>
@@ -41,12 +42,38 @@
             </div>
             <div class="form-group">
                 <label for="discipline">Дисципліна:</label>
-                <form:select path="idDiscipline" name="discipline.id" id="discipline" disabled="true" cssClass="form-control">
+                <form:select path="Discipline.id" name="discipline.id" id="discipline" disabled="true" cssClass="form-control">
                 </form:select>
             </div>
             <form:input type="hidden" path="id" id="id"/>
-            <form:input type="hidden" path="idYear" id="idYear" value="${sessionScope.learningYear}"/>
-            <form:input type="hidden" path="idGruppa" id="idGruppa" value="${sessionScope.groupTbl}"/>
+
+            <form:select path="LearningYear.id" id="learningYear.id" name="learningYear.id" cssStyle="display: none;">
+                <c:forEach items="${learningYear}" var="learningYear">
+                    <c:choose>
+                        <c:when test="${learningYear.id == sessionScope.s_gr}">
+                            <form:option selected="selected" value="${learningYear.id}">${learningYear.name}</form:option>
+                        </c:when>
+                        <c:otherwise>
+                            <form:option value="${learningYear.id}">${learningYear.name}</form:option>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+            </form:select>
+            <form:select path="GroupTbl.id" id="groupTbl" name="groupTbl" cssStyle="display: none;">
+                <c:forEach items="${groupTbl}" var="groupTbl">
+                    <c:choose>
+                        <c:when test="${groupTbl.id == sessionScope.s_gr}">
+                            <form:option selected="selected" value="${groupTbl.id}">${groupTbl.name}</form:option>
+                        </c:when>
+                        <c:otherwise>
+                            <form:option value="${groupTbl.id}">${groupTbl.name}</form:option>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+            </form:select>
+
+            <%--<form:input type="hidden" path="LearningYear.id" id="LearningYear" value="${filter_learningYear}"/>--%>
+            <%--<form:input type="hidden" path="GroupTbl.id" id="GroupTbl" value="${filter_groupTbl}"/>--%>
         </div>
         <table class="table table-bordered table-hover table-condensed table_text table-striped" id="main_table">
         <thead class="my_tr_back" style="width: 100%;">
@@ -301,7 +328,6 @@
         </button>
 </form:form>
 
-    <%--${sessionScope}--%>
 </div>
 <script type="text/javascript">
     $('#kafedra').select2();

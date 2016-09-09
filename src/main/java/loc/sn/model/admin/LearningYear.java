@@ -43,7 +43,14 @@ public class LearningYear {
 
     @JsonIgnore
     @OneToMany(mappedBy = "learningYear")
-    private Set<PlanHistory> planHistories;
+    private Set<PlanHistory> planHistory;
+
+    public LearningYear() {
+    }
+
+    public LearningYear(String id) {
+        this.id = Integer.parseInt(id);
+    }
 
     public int getId() {
         return id;
@@ -85,12 +92,12 @@ public class LearningYear {
         this.current = current;
     }
 
-    public Set<PlanHistory> getPlanHistories() {
-        return planHistories;
+    public Set<PlanHistory> getPlanHistory() {
+        return planHistory;
     }
 
-    public void setPlanHistories(Set<PlanHistory> planHistories) {
-        this.planHistories = planHistories;
+    public void setPlanHistory(Set<PlanHistory> planHistory) {
+        this.planHistory = planHistory;
     }
 
     @Override

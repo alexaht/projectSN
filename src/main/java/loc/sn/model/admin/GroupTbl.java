@@ -41,7 +41,14 @@ public class GroupTbl {
 
     @JsonIgnore
     @OneToMany(mappedBy = "groupTbl")
-    private Set<PlanHistory> planHistories;
+    private Set<PlanHistory> planHistory;
+
+    public GroupTbl() {
+    }
+
+    public GroupTbl(String id) {
+        this.id = Integer.parseInt(id);
+    }
 
     public int getId() {
         return id;
@@ -83,11 +90,23 @@ public class GroupTbl {
         this.facultet = facultet;
     }
 
-    public Set<PlanHistory> getPlanHistories() {
-        return planHistories;
+    public Set<PlanHistory> getPlanHistory() {
+        return planHistory;
     }
 
-    public void setPlanHistories(Set<PlanHistory> planHistories) {
-        this.planHistories = planHistories;
+    public void setPlanHistory(Set<PlanHistory> planHistory) {
+        this.planHistory = planHistory;
+    }
+
+    @Override
+    public String toString() {
+        return "GroupTbl{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", facultet=" + facultet +
+                ", stAmount=" + stAmount +
+                ", kurs=" + kurs +
+                ", planHistory=" + planHistory +
+                '}';
     }
 }

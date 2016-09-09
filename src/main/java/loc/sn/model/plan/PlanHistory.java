@@ -8,9 +8,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
 
-/**
- * Created by oleksiy on 23.08.16.
- */
+
 @Entity
 @Table(name = "PLAN_HISTORY")
 public class PlanHistory {
@@ -19,42 +17,21 @@ public class PlanHistory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-   /* @NotNull
-    @Column(name = "id_year")
-    private int idYear;*/
-
-    @JsonIgnore
+     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_year")
     private LearningYear learningYear;
 
-
-  /*  @NotNull
-    @Column(name = "id_gruppa")
-    private int idGruppa;
-*/
 
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_gruppa")
     private GroupTbl groupTbl;
 
-/*
-    @NotNull
-    @Column(name = "id_kafedra")
-    private int idKafedra;
-*/
-
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_kafedra")
     private Kafedra kafedra;
-
-/*
-    @NotNull
-    @Column(name = "id_discipline")
-    private int idDiscipline;
-*/
 
     @JsonIgnore
     @ManyToOne

@@ -798,6 +798,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/plan/createplan/success.jsp">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/static/futter.jsp">
           <value>
             <set />

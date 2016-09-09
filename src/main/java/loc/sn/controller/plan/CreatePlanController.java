@@ -16,6 +16,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -54,6 +55,12 @@ public class CreatePlanController {
     public String showFilter(ModelMap modelMap, HttpServletRequest request) {
         List<LearningYear> learningYears = learningYearService.findAllLearningYears();
         List<GroupTbl> groupTbls = groupTblService.findAllGroupTbl();
+
+        List<PlanHistory> planHistories = null;
+        if (null != request.getSession().getAttribute("s_ly")) {
+            planHistories = planHistoryService.findAllByYearAndGroup(Integer.parseInt((String)request.getSession().getAttribute("s_ly")), Integer.parseInt((String)request.getSession().getAttribute("s_gr")));
+        }
+        modelMap.addAttribute("planHistory", planHistories);
         modelMap.addAttribute("learningYear", learningYears);
         modelMap.addAttribute("groupTbl", groupTbls);
         modelMap.addAttribute("title", "Ввести дані плану | План");
@@ -90,15 +97,17 @@ public class CreatePlanController {
 
     @RequestMapping(value = {"/new/{learningYear}/{groupTbl}"}, method = RequestMethod.GET)
     public String addNewPlanValue(@PathVariable("learningYear") String learningYear, @PathVariable("groupTbl") String groupTbl, ModelMap modelMap, HttpServletRequest request) {
-        if ((request.getSession().getAttribute("learningYear") == null) || (request.getSession().getAttribute("groupTbl") == null)) {
+        if ((request.getSession().getAttribute("s_ly") == null) || (request.getSession().getAttribute("s_gr") == null)) {
             return "redirect:/createPlan/select";
         }
         List<Kafedra> kafedras = kafedraService.findAllKafedras();
+        List<GroupTbl> groupTbls = groupTblService.findAllGroupTbl();
+        List<LearningYear> learningYears = learningYearService.findAllLearningYears();
         PlanHistory planHistory = new PlanHistory();
         modelMap.addAttribute("planHistory", planHistory);
         modelMap.addAttribute("kafedra", kafedras);
-        modelMap.addAttribute("filter_learningYear", learningYear);
-        modelMap.addAttribute("filter_groupTbl", groupTbl);
+        modelMap.addAttribute("groupTbl", groupTbls);
+        modelMap.addAttribute("learningYear", learningYears);
         modelMap.addAttribute("title", "Додати новий план | План");
         return "/plan/createplan/add";
     }
@@ -107,6 +116,10 @@ public class CreatePlanController {
     public String saveNewPlanValue(@Valid PlanHistory planHistory, BindingResult result, ModelMap modelMap) {
         if (result.hasErrors()) {
             modelMap.addAttribute("title", "Помилка | План");
+            List<FieldError> errors = result.getFieldErrors();
+            for (FieldError error : errors ) {
+                System.out.println (error.getObjectName() + " - " + error.getDefaultMessage());
+            }
             return "/plan/createplan/add";
         }
         planHistoryService.savePlanHistory(planHistory);

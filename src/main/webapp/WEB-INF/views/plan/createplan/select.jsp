@@ -187,7 +187,7 @@
                     </td>
                 </tr>
                 <tr id="AddTableRow">
-                    <td align="left"  colspan="35">
+                    <td align="left"  colspan="36">
                         <c:choose>
                             <c:when test="${(!empty sessionScope.s_ly) && (!empty sessionScope.s_gr)}">
                                 <a class="btn btn-primary" href="/createPlan/new/${sessionScope.s_ly}/${sessionScope.s_gr}">
@@ -204,8 +204,8 @@
                             <td>${planHistory.kafedra.shortKafName}</td>
                             <td>${planHistory.discipline.name}</td>
 
-                            <td>${planHistory.nPlan}</td>
-                            <td>${planHistory.nConsult}</td>
+                            <td style="border-right: 1px solid #000000;">${planHistory.nPlan}</td>
+                            <td style="border-right: 1px solid #000000;">${planHistory.nConsult}</td>
 
                             <td>${planHistory.zLesson}</td>
                             <td>${planHistory.zLab}</td>
@@ -221,7 +221,7 @@
                             <td>${planHistory.zCpa}</td>
                             <td>${planHistory.zAtest}</td>
                             <td>${planHistory.zCcrDp}</td>
-                            <td>${planHistory.zPzdp}</td>
+                            <td style="border-right: 1px solid #000000;">${planHistory.zPzdp}</td>
 
                             <td>${planHistory.sLesson}</td>
                             <td>${planHistory.sLab}</td>
@@ -237,7 +237,7 @@
                             <td>${planHistory.sCpa}</td>
                             <td>${planHistory.sAtest}</td>
                             <td>${planHistory.sCcrDp}</td>
-                            <td>${planHistory.sPzdp}</td>
+                            <td style="border-right: 1px solid #000000;">${planHistory.sPzdp}</td>
                             <td><a href="/createPlan/edit-${planHistory.id}-planHistory"><span class="glyphicon glyphicon-edit"></span></a></td>
                             <td><a href="/createPlan/delete-${planHistory.id}-planHistory"><span class="glyphicon glyphicon-floppy-remove"></span></a></td>
                         </tr>
