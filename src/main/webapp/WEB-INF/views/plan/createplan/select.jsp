@@ -199,7 +199,49 @@
                 </tr>
                 </thead>
                 <tbody>
+                    <c:forEach items="${planHistory}" var="planHistory">
+                        <tr>
+                            <td>${planHistory.kafedra.shortKafName}</td>
+                            <td>${planHistory.discipline.name}</td>
 
+                            <td>${planHistory.nPlan}</td>
+                            <td>${planHistory.nConsult}</td>
+
+                            <td>${planHistory.zLesson}</td>
+                            <td>${planHistory.zLab}</td>
+                            <td>${planHistory.zPractice}</td>
+                            <td>${planHistory.zConsult}</td>
+                            <td>${planHistory.zKursWork}</td>
+                            <td>${planHistory.zKursWorkIngFah}</td>
+                            <td>${planHistory.zKursWorkFah}</td>
+                            <td>${planHistory.zControlWork}</td>
+                            <td>${planHistory.zCce}</td>
+                            <td>${planHistory.zExam}</td>
+                            <td>${planHistory.zZalik}</td>
+                            <td>${planHistory.zCpa}</td>
+                            <td>${planHistory.zAtest}</td>
+                            <td>${planHistory.zCcrDp}</td>
+                            <td>${planHistory.zPzdp}</td>
+
+                            <td>${planHistory.sLesson}</td>
+                            <td>${planHistory.sLab}</td>
+                            <td>${planHistory.sPractice}</td>
+                            <td>${planHistory.sConsult}</td>
+                            <td>${planHistory.sKursWork}</td>
+                            <td>${planHistory.sKursWorkIngFah}</td>
+                            <td>${planHistory.sKursWorkFah}</td>
+                            <td>${planHistory.sControlWork}</td>
+                            <td>${planHistory.sCce}</td>
+                            <td>${planHistory.sExam}</td>
+                            <td>${planHistory.sZalik}</td>
+                            <td>${planHistory.sCpa}</td>
+                            <td>${planHistory.sAtest}</td>
+                            <td>${planHistory.sCcrDp}</td>
+                            <td>${planHistory.sPzdp}</td>
+                            <td><a href="/createPlan/edit-${planHistory.id}-planHistory"><span class="glyphicon glyphicon-edit"></span></a></td>
+                            <td><a href="/createPlan/delete-${planHistory.id}-planHistory"><span class="glyphicon glyphicon-floppy-remove"></span></a></td>
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table>
 

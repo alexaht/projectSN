@@ -38,8 +38,6 @@
 </div>
 <div style="display: block;float: left; margin-left: 35px;width: 100%;">
    <button class="btn btn-primary" type="submit" style="margin: 5px;" form="learningYear">Застосувати</button>
-    ${sessionScope}
-
 </div>
 <script type="text/javascript">
     $('#groupTbl').select2();
