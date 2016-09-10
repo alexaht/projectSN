@@ -33,6 +33,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/DbDDL">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/pom.xml">
           <value>
             <set />
@@ -884,6 +889,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/test/resources/Employee.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="dbtable:/90711426/d452f78f-2443-4f7f-b298-ead2fa76c139/site_nagr.DISCIPLINE">
           <value>
             <set />
           </value>

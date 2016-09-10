@@ -1,0 +1,86 @@
+CREATE TABLE USER
+(
+    id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    fam MEDIUMTEXT NOT NULL,
+    name MEDIUMTEXT NOT NULL,
+    otch MEDIUMTEXT NOT NULL,
+    password MEDIUMTEXT NOT NULL,
+    email MEDIUMTEXT NOT NULL
+);
+CREATE TABLE LEARNING_YEAR
+(
+    id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    name MEDIUMTEXT NOT NULL,
+    begin INT(11) NOT NULL,
+    end INT(11) NOT NULL,
+    current INT(11) DEFAULT '0' NOT NULL
+);
+CREATE TABLE PLAN_HISTORY
+(
+    id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    id_year INT(11) NOT NULL,
+    id_gruppa INT(11) NOT NULL,
+    id_kafedra INT(11) NOT NULL,
+    id_discipline INT(11) NOT NULL,
+    n_plan INT(11) NOT NULL,
+    n_consult INT(11) NOT NULL,
+    z_lesson INT(11) NOT NULL,
+    z_lab INT(11) NOT NULL,
+    z_practice INT(11) NOT NULL,
+    z_consult INT(11) NOT NULL,
+    z_kurswork INT(11) NOT NULL,
+    z_kurswork_ing_fah INT(11) NOT NULL,
+    z_kurswork_fah INT(11) NOT NULL,
+    z_controlwork INT(11) NOT NULL,
+    z_cce INT(11) NOT NULL,
+    z_exam INT(11) NOT NULL,
+    z_zalik INT(11) NOT NULL,
+    z_cpa INT(11) NOT NULL,
+    z_atest INT(11) NOT NULL,
+    z_ccrdp INT(11) NOT NULL,
+    z_pzdp INT(11) NOT NULL,
+    s_lesson INT(11) NOT NULL,
+    s_lab INT(11) NOT NULL,
+    s_practice INT(11) NOT NULL,
+    s_consult INT(11) NOT NULL,
+    s_kurswork INT(11) NOT NULL,
+    s_kurswork_ing_fah INT(11) NOT NULL,
+    s_kurswork_fah INT(11) NOT NULL,
+    s_controlwork INT(11) NOT NULL,
+    s_cce INT(11) NOT NULL,
+    s_exam INT(11) NOT NULL,
+    s_zalik INT(11) NOT NULL,
+    s_cpa INT(11) NOT NULL,
+    s_atest INT(11) NOT NULL,
+    s_ccrdp INT(11) NOT NULL,
+    s_pzdp INT(11) NOT NULL
+);
+CREATE TABLE KAFEDRA
+(
+    id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    name MEDIUMTEXT NOT NULL,
+    id_facultet INT(11) NOT NULL,
+    email MEDIUMTEXT NOT NULL,
+    short_kaf_name MEDIUMTEXT NOT NULL,
+    pn INT(11) NOT NULL
+);
+CREATE TABLE FACULTET
+(
+    id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    name MEDIUMTEXT NOT NULL,
+    short_fac_name MEDIUMTEXT NOT NULL
+);
+CREATE TABLE DISCIPLINE
+(
+    id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    name MEDIUMTEXT NOT NULL,
+    id_kaf INT(11) NOT NULL
+);
+CREATE TABLE GROUPTBL
+(
+    id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    name MEDIUMTEXT NOT NULL,
+    id_facultet INT(11) NOT NULL,
+    st_amount INT(11) NOT NULL,
+    kurs INT(11) NOT NULL
+);
