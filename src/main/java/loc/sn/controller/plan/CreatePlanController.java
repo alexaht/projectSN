@@ -16,7 +16,6 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -109,6 +108,7 @@ public class CreatePlanController {
         modelMap.addAttribute("groupTbl", groupTbls);
         modelMap.addAttribute("learningYear", learningYears);
         modelMap.addAttribute("title", "Додати новий план | План");
+        modelMap.addAttribute("edit", false);
         return "/plan/createplan/add";
     }
 
@@ -116,16 +116,53 @@ public class CreatePlanController {
     public String saveNewPlanValue(@Valid PlanHistory planHistory, BindingResult result, ModelMap modelMap) {
         if (result.hasErrors()) {
             modelMap.addAttribute("title", "Помилка | План");
-            List<FieldError> errors = result.getFieldErrors();
+
+            // Output to console errors @Valid PlanHistory
+            /*List<FieldError> errors = result.getFieldErrors();
             for (FieldError error : errors ) {
                 System.out.println (error.getObjectName() + " - " + error.getDefaultMessage());
-            }
+            }*/
+
             return "/plan/createplan/add";
         }
         planHistoryService.savePlanHistory(planHistory);
         modelMap.addAttribute("title", "План доданий успішно | План");
         modelMap.addAttribute("title", "Додати новий план | План");
         return "/plan/createplan/success";
+    }
+
+    @RequestMapping(value = {"/edit-{id}-planHistory"}, method = RequestMethod.GET)
+    public String editPlanValue(@PathVariable String id, ModelMap modelMap) {
+        PlanHistory planHistory = planHistoryService.findById(Integer.parseInt(id));
+        List<Kafedra> kafedras = kafedraService.findAllKafedras();
+        List<GroupTbl> groupTbls = groupTblService.findAllGroupTbl();
+        List<LearningYear> learningYears = learningYearService.findAllLearningYears();
+
+        // TODO: 10.09.16 add kafedra and discipline selected value when edit true
+        modelMap.addAttribute("planHistory", planHistory);
+        modelMap.addAttribute("kafedra", kafedras);
+        modelMap.addAttribute("groupTbl", groupTbls);
+        modelMap.addAttribute("learningYear", learningYears);
+        modelMap.addAttribute("edit", true);
+        modelMap.addAttribute("title", "Редагувати план | План");
+        return "/plan/createplan/add";
+    }
+
+    @RequestMapping(value = {"/edit-{id}-planHistory"}, method = RequestMethod.POST)
+    public String updatePlanValue(@Valid PlanHistory planHistory, BindingResult result, ModelMap modelMap) {
+        if (result.hasErrors()) {
+            return "/plan/createplan/add";
+        }
+        planHistoryService.updatePlanHistory(planHistory);
+        modelMap.addAttribute("success", planHistory.getDiscipline().getName() + "на" + planHistory.getKafedra().getName() + "успішно оновлена");
+        modelMap.addAttribute("title", "План оновлений | Адміністрування");
+        return "/plan/createplan/success";
+    }
+
+    @RequestMapping(value = {"/delete-{id}-planHistory"}, method = RequestMethod.GET)
+    public String deletePlanValue(@PathVariable String id) {
+        planHistoryService.deletePlanHistory(id);
+        return "redirect:/createPlan/select";
     }
 
 

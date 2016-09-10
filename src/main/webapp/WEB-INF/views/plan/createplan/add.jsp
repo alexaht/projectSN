@@ -323,9 +323,19 @@ ${sessionScope}
         <form:errors path="sCcrDp" cssClass="validError"/>
         <form:errors path="sPzdp" cssClass="validError"/>
 
-        <button type="submit" class="btn btn-primary">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;Додати
-        </button>
+        <c:choose>
+            <c:when test="${edit}">
+                <button type="submit" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-save"></span>&nbsp;Оновити
+                </button>
+            </c:when>
+            <c:otherwise>
+                <button type="submit" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-save"></span>&nbsp;Додати
+                </button>
+            </c:otherwise>
+        </c:choose>
+
 </form:form>
 
 </div>
