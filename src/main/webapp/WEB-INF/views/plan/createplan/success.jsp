@@ -7,7 +7,8 @@
     setTimeout('window.location.href = "/createPlan/select"', 1500);
 </script>
 <div class="bodyBlock">
-    ${success}
+    <%--${success}--%>
+     Перенаправлення
     <br/>
     <br/>
     <a href="<c:url value='/createPlan/select' />">Назад до редагування плану навантаження</a>

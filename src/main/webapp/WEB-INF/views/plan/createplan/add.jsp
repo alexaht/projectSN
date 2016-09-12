@@ -27,7 +27,6 @@
         });
     }
 </script>
-${sessionScope}
 <div class="bodyBlock" style="margin: 5px; padding: 5px;">
     <form:form modelAttribute="planHistory" method="post">
         <div class="fl_left">
@@ -42,8 +41,19 @@ ${sessionScope}
             </div>
             <div class="form-group">
                 <label for="discipline">Дисципліна:</label>
-                <form:select path="Discipline.id" name="discipline.id" id="discipline" disabled="true" cssClass="form-control">
-                </form:select>
+                <c:choose>
+                    <c:when test="${edit}">
+                        <form:select path="Discipline.id" name="discipline.id" id="discipline" cssClass="form-control">
+                            <c:forEach items="${discipline}" var="discipline">
+                                <form:option value="${discipline.id}">${discipline.name}</form:option>
+                            </c:forEach>
+                        </form:select>
+                    </c:when>
+                    <c:otherwise>
+                        <form:select path="Discipline.id" name="discipline.id" id="discipline" disabled="true" cssClass="form-control">
+                        </form:select>
+                    </c:otherwise>
+                </c:choose>
             </div>
             <form:input type="hidden" path="id" id="id"/>
 
@@ -337,7 +347,7 @@ ${sessionScope}
         </c:choose>
 
 </form:form>
-
+<a href="/createPlan/select"><span class="glyphicon glyphicon-arrow-left">&nbsp;Повернутись назад</span></a>
 </div>
 <script type="text/javascript">
     $('#kafedra').select2();

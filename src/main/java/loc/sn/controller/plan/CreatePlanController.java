@@ -122,10 +122,10 @@ public class CreatePlanController {
             for (FieldError error : errors ) {
                 System.out.println (error.getObjectName() + " - " + error.getDefaultMessage());
             }*/
-
             return "/plan/createplan/add";
         }
         planHistoryService.savePlanHistory(planHistory);
+        modelMap.addAttribute("success", planHistory.getDiscipline().getName() + "на" + planHistory.getKafedra().getName() + "успішно оновлена");
         modelMap.addAttribute("title", "План доданий успішно | План");
         modelMap.addAttribute("title", "Додати новий план | План");
         return "/plan/createplan/success";
@@ -137,9 +137,10 @@ public class CreatePlanController {
         List<Kafedra> kafedras = kafedraService.findAllKafedras();
         List<GroupTbl> groupTbls = groupTblService.findAllGroupTbl();
         List<LearningYear> learningYears = learningYearService.findAllLearningYears();
-
+        List<Discipline> disciplines = disciplineService.findAllDisciplineByKafedraId(planHistory.getKafedra().getId());
         // TODO: 10.09.16 add kafedra and discipline selected value when edit true
         modelMap.addAttribute("planHistory", planHistory);
+        modelMap.addAttribute("discipline", disciplines);
         modelMap.addAttribute("kafedra", kafedras);
         modelMap.addAttribute("groupTbl", groupTbls);
         modelMap.addAttribute("learningYear", learningYears);
