@@ -14,6 +14,7 @@ I'm using here such technologies as:
     - AJAX
     - Json mapping for Ajax request
     - Maven
+    - Bootstrap
 
 **DataBase structure can see in DbDll file in project**
 
