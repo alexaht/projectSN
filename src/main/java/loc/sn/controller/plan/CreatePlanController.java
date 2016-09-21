@@ -56,7 +56,7 @@ public class CreatePlanController {
         List<GroupTbl> groupTbls = groupTblService.findAllGroupTbl();
 
         List<PlanHistory> planHistories = null;
-        if (null != request.getSession().getAttribute("s_ly")) {
+        if ((null != request.getSession().getAttribute("s_ly")) && (null != request.getSession().getAttribute("s_gr"))) {
             planHistories = planHistoryService.findAllByYearAndGroup(Integer.parseInt((String)request.getSession().getAttribute("s_ly")), Integer.parseInt((String)request.getSession().getAttribute("s_gr")));
         }
         modelMap.addAttribute("planHistory", planHistories);
@@ -138,7 +138,6 @@ public class CreatePlanController {
         List<GroupTbl> groupTbls = groupTblService.findAllGroupTbl();
         List<LearningYear> learningYears = learningYearService.findAllLearningYears();
         List<Discipline> disciplines = disciplineService.findAllDisciplineByKafedraId(planHistory.getKafedra().getId());
-        // TODO: 10.09.16 add kafedra and discipline selected value when edit true
         modelMap.addAttribute("planHistory", planHistory);
         modelMap.addAttribute("discipline", disciplines);
         modelMap.addAttribute("kafedra", kafedras);

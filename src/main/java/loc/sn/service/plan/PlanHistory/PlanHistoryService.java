@@ -21,4 +21,6 @@ public interface PlanHistoryService {
 
     List<PlanHistory> findAllByYearAndGroup(int learningYear, int groupTbl);
 
+    List<PlanHistory> findAllByYearAndFacultetAndKafedra(int learningYear, int kafedra);
+
 }

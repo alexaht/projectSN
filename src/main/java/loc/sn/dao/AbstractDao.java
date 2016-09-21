@@ -42,7 +42,7 @@ public abstract class AbstractDao<PK extends Serializable, T> {
 	}
 	
 	protected Criteria createEntityCriteria(){
-		return getSession().createCriteria(persistentClass);
+		return getSession().createCriteria(persistentClass).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 	}
 
 }

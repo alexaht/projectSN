@@ -10,9 +10,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
 
-/**
- * Created by oleksiy on 23.08.16.
- */
+
 @Entity
 @Table(name = "LEARNING_YEAR")
 public class LearningYear {

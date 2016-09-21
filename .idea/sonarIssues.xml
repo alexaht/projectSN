@@ -483,12 +483,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/loc/sn/controller/plan/CalculatePlan.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/loc/sn/controller/plan/CreatePlan.java">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/loc/sn/controller/plan/CreatePlanController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/loc/sn/controller/plan/ShowPlanController.java">
           <value>
             <set />
           </value>
@@ -509,6 +519,36 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/loc/sn/dao/admin/Discipline/DisciplineDaoImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/loc/sn/dao/plan/PlanCalculate/PlanCalcDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/loc/sn/dao/plan/PlanCalculate/PlanCalcDaoImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/loc/sn/dao/plan/PlanCalculate/PlanHistoryCalcDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/loc/sn/dao/plan/PlanCalculate/PlanHistoryCalcDaoImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/loc/sn/dao/plan/PlanCalculate/PlanHistoryCalcImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/loc/sn/dao/plan/PlanCalculate/PlanHistoryCalculateDao.java">
           <value>
             <set />
           </value>
@@ -548,7 +588,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/loc/sn/model/plan/PlanCalc.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/loc/sn/model/plan/PlanHistory.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/loc/sn/model/plan/PlanHistoryCalc.java">
           <value>
             <set />
           </value>
@@ -563,12 +613,37 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/loc/sn/service/plan/PlanCalculate/PlanCalcService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/loc/sn/service/plan/PlanCalculate/PlanCalcServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/loc/sn/service/plan/PlanCalculate/PlanCalculateService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/loc/sn/service/plan/PlanCalculate/PlanCalculateServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/loc/sn/service/plan/PlanHistory/PlanHistoryService.java">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/loc/sn/service/plan/PlanHistory/PlanHistoryServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/loc/sn/utils/PlanHistoryFormula.java">
           <value>
             <set />
           </value>
@@ -813,6 +888,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/plan/showplan/filter.jsp">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/plan/showplan/select.jsp">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/static/futter.jsp">
           <value>
             <set />
@@ -904,6 +989,11 @@
           </value>
         </entry>
         <entry key="dbtable:/90711426/d452f78f-2443-4f7f-b298-ead2fa76c139/site_nagr.PLAN_HISTORY">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="dbtable:/90711426/d452f78f-2443-4f7f-b298-ead2fa76c139/site_nagr.PLAN_HISTORY_CALC">
           <value>
             <set />
           </value>

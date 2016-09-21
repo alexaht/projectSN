@@ -3,7 +3,9 @@ package loc.sn.dao.plan.PlanHistory;
 import loc.sn.dao.AbstractDao;
 import loc.sn.model.plan.PlanHistory;
 import org.hibernate.Criteria;
+import org.hibernate.FetchMode;
 import org.hibernate.Query;
+import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
@@ -40,6 +42,13 @@ public class PlanHistoryDaoImpl extends AbstractDao<Integer, PlanHistory> implem
         Criteria criteria = createEntityCriteria();
         criteria.add(Restrictions.eq("learningYear.id", learningYear));
         criteria.add(Restrictions.eq("groupTbl.id", groupTbl));
+        return (List<PlanHistory>) criteria.list();
+    }
+
+    public List<PlanHistory> findAllByYearAndFacultetAndKafedra(int learningYear, int kafedra) {
+        Criteria criteria = createEntityCriteria();
+        criteria.add(Restrictions.eq("learningYear.id", learningYear));
+        criteria.add(Restrictions.eq("kafedra.id", kafedra));
         return (List<PlanHistory>) criteria.list();
     }
 }

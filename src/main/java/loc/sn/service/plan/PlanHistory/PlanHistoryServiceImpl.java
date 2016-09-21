@@ -41,5 +41,8 @@ public class PlanHistoryServiceImpl implements PlanHistoryService {
     public List<PlanHistory> findAllByYearAndGroup(int learningYear, int groupTbl) {
         return planHistoryDao.findAllByYearAndGroup(learningYear, groupTbl);
     }
+    public List<PlanHistory> findAllByYearAndFacultetAndKafedra(int learningYear, int kafedra) {
+        return planHistoryDao.findAllByYearAndFacultetAndKafedra(learningYear, kafedra);
+    }
 
 }

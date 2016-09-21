@@ -20,7 +20,7 @@
             </form:select>
         </div>
         <div style="display: block; float: left;">
-            <label for="learningYear" style="width: 100%">Група</label>
+            <label for="groupTbl" style="width: 100%">Група</label>
             <form:select name="groupTbl" path="" id="groupTbl" cssStyle="width: 250px">
                 <c:forEach items="${groupTbl}" var="groupTbl">
                     <c:choose>

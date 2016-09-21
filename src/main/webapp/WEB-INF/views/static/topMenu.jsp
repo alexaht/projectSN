@@ -20,7 +20,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">План<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="/createPlan/select">Ввести дані по плану</a></li>
-                        <li><a href="#">Розрахувати години</a></li>
+                        <li><a href="/showPlan/select">Розрахувати години</a></li>
                         <li><a href="#">Копіювати план</a></li>
                     </ul>
                 </li>
