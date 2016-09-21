@@ -42,7 +42,7 @@ public class Kafedra {
     private Set<Discipline> disciplines;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "kafedra")
+    @OneToMany(mappedBy = "kafedra",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private Set<PlanHistory> planHistories;
 
     public int getId() {

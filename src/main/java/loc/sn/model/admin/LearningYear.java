@@ -40,7 +40,7 @@ public class LearningYear {
     private int current;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "learningYear")
+    @OneToMany(mappedBy = "learningYear",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private Set<PlanHistory> planHistory;
 
     public LearningYear() {

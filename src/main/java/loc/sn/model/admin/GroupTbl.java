@@ -40,7 +40,7 @@ public class GroupTbl {
     private int kurs;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "groupTbl")
+    @OneToMany(mappedBy = "groupTbl",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private Set<PlanHistory> planHistory;
 
     public GroupTbl() {

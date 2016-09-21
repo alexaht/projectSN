@@ -27,7 +27,7 @@ public class Discipline {
     private Kafedra kafedra;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "discipline")
+    @OneToMany(mappedBy = "discipline",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private Set<PlanHistory> planHistories;
 
     public int getId() {
