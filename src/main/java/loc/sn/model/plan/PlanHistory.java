@@ -17,7 +17,7 @@ public class PlanHistory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-     @JsonIgnore
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_year")
     private LearningYear learningYear;
@@ -402,46 +402,4 @@ public class PlanHistory {
         this.groupTbl = groupTbl;
     }
 
-    @Override
-    public String toString() {
-        return "PlanHistory{" +
-                "id=" + id +
-                ", learningYear=" + learningYear +
-                ", groupTbl=" + groupTbl +
-                ", kafedra=" + kafedra +
-                ", discipline=" + discipline +
-                ", nPlan=" + nPlan +
-                ", nConsult=" + nConsult +
-                ", zLesson=" + zLesson +
-                ", zLab=" + zLab +
-                ", zPractice=" + zPractice +
-                ", zConsult=" + zConsult +
-                ", zKursWork=" + zKursWork +
-                ", zKursWorkIngFah=" + zKursWorkIngFah +
-                ", zKursWorkFah=" + zKursWorkFah +
-                ", zControlWork=" + zControlWork +
-                ", zCce=" + zCce +
-                ", zExam=" + zExam +
-                ", zZalik=" + zZalik +
-                ", zCpa=" + zCpa +
-                ", zAtest=" + zAtest +
-                ", zCcrDp=" + zCcrDp +
-                ", zPzdp=" + zPzdp +
-                ", sLesson=" + sLesson +
-                ", sLab=" + sLab +
-                ", sPractice=" + sPractice +
-                ", sConsult=" + sConsult +
-                ", sKursWork=" + sKursWork +
-                ", sKursWorkIngFah=" + sKursWorkIngFah +
-                ", sKursWorkFah=" + sKursWorkFah +
-                ", sControlWork=" + sControlWork +
-                ", sCce=" + sCce +
-                ", sExam=" + sExam +
-                ", sZalik=" + sZalik +
-                ", sCpa=" + sCpa +
-                ", sAtest=" + sAtest +
-                ", sCcrDp=" + sCcrDp +
-                ", sPzdp=" + sPzdp +
-                '}';
-    }
 }

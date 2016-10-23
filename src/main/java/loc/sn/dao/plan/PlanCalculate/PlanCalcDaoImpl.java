@@ -3,6 +3,7 @@ package loc.sn.dao.plan.PlanCalculate;
 import loc.sn.dao.AbstractDao;
 import loc.sn.model.plan.PlanCalc;
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,5 +18,10 @@ public class PlanCalcDaoImpl extends AbstractDao<Integer, PlanCalc> implements P
 
     public void savePlanCalc(PlanCalc planCalc) {
         persist(planCalc);
+    }
+
+    public void truncateTable() {
+        Query query = getSession().createQuery("DELETE from PlanCalc");
+        query.executeUpdate();
     }
 }

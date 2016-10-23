@@ -9,4 +9,6 @@ public interface PlanCalcService {
     List<PlanCalc> findAllPlanCalc();
 
     void savePlanCalc(PlanCalc planCalc);
+
+    void truncateTable();
 }

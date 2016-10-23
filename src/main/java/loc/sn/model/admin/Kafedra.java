@@ -110,16 +110,4 @@ public class Kafedra {
         this.planHistories = planHistories;
     }
 
-    @Override
-    public String toString() {
-        return "Kafedra{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", facultet=" + facultet +
-                ", email='" + email + '\'' +
-                ", shortKafName='" + shortKafName + '\'' +
-                ", pn=" + pn +
-                '}';
-    }
-
 }

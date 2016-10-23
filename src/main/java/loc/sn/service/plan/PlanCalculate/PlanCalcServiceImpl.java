@@ -24,4 +24,8 @@ public class PlanCalcServiceImpl implements PlanCalcService {
     public void savePlanCalc(PlanCalc planCalc) {
         planCalcDao.savePlanCalc(planCalc);
     }
+
+    public void truncateTable() {
+        planCalcDao.truncateTable();
+    }
 }

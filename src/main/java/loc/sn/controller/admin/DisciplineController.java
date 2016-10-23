@@ -19,9 +19,6 @@ import javax.validation.Valid;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Created by oleksiy on 23.08.16.
- */
 @Controller
 @RequestMapping("/discipline")
 public class DisciplineController {

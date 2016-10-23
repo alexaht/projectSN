@@ -62,12 +62,4 @@ public class Discipline {
         this.planHistories = planHistories;
     }
 
-    @Override
-    public String toString() {
-        return "Discipline{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", kafedra=" + kafedra +
-                '}';
-    }
 }

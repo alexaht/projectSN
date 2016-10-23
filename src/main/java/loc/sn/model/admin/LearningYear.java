@@ -98,14 +98,4 @@ public class LearningYear {
         this.planHistory = planHistory;
     }
 
-    @Override
-    public String toString() {
-        return "LearningYear{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", beginYear=" + beginYear +
-                ", endYear=" + endYear +
-                ", current=" + current +
-                '}';
-    }
 }

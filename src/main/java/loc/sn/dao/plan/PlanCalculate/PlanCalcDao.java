@@ -11,4 +11,6 @@ public interface PlanCalcDao {
 
     void savePlanCalc(PlanCalc planCalc);
 
+    void truncateTable();
+
 }

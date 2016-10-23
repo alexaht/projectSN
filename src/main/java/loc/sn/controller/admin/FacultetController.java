@@ -14,9 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.validation.Valid;
 import java.util.List;
 
-/**
- * Created by oleksiy on 23.08.16.
- */
 @Controller
 @RequestMapping("/facultet")
 public class FacultetController {

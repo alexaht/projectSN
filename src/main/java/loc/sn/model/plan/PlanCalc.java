@@ -15,6 +15,9 @@ public class PlanCalc {
     @Column(name = "groupName")
     private String groupName;
 
+    @Column(name = "discipline_id")
+    private int disciplineId;
+
     @Column(name = "studAmount")
     private int studentsAmount;
 
@@ -43,7 +46,7 @@ public class PlanCalc {
     private double controlWork;
 
     @Column(name = "cce")
-    private double consultSemExam;
+    private double cce;
 
     @Column(name = "exam")
     private double exam;
@@ -52,7 +55,7 @@ public class PlanCalc {
     private double zalik;
 
     @Column(name = "cpa")
-    private double consultAtest;
+    private double cpa;
 
     @Column(name = "atest")
     private double atest;
@@ -154,12 +157,12 @@ public class PlanCalc {
         this.controlWork = controlWork;
     }
 
-    public double getConsultSemExam() {
-        return consultSemExam;
+    public double getCce() {
+        return cce;
     }
 
-    public void setConsultSemExam(double consultSemExam) {
-        this.consultSemExam = consultSemExam;
+    public void setCce(double cce) {
+        this.cce = cce;
     }
 
     public double getExam() {
@@ -178,12 +181,13 @@ public class PlanCalc {
         this.zalik = zalik;
     }
 
-    public double getConsultAtest() {
-        return consultAtest;
+
+    public double getCpa() {
+        return cpa;
     }
 
-    public void setConsultAtest(double consultAtest) {
-        this.consultAtest = consultAtest;
+    public void setCpa(double cpa) {
+        this.cpa = cpa;
     }
 
     public double getAtest() {
@@ -216,5 +220,13 @@ public class PlanCalc {
 
     public void setAllSum(double allSum) {
         this.allSum = allSum;
+    }
+
+    public int getDisciplineId() {
+        return disciplineId;
+    }
+
+    public void setDisciplineId(int disciplineId) {
+        this.disciplineId = disciplineId;
     }
 }

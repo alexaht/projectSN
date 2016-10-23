@@ -98,15 +98,4 @@ public class GroupTbl {
         this.planHistory = planHistory;
     }
 
-    @Override
-    public String toString() {
-        return "GroupTbl{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", facultet=" + facultet +
-                ", stAmount=" + stAmount +
-                ", kurs=" + kurs +
-                ", planHistory=" + planHistory +
-                '}';
-    }
 }
