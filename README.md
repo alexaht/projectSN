@@ -19,6 +19,4 @@ I'm using here such technologies as:
 **DataBase structure can see in DbDll file in project**
 
 
-
-
-
+addding testing string to test auto build
